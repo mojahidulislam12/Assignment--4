@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Tracker</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Manrope:wght@200..800&family=Outfit:wght@100..900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css.css">
+    <style>
+        * {
+            font-family: "Manrope", sans-serif;
+        }
+    </style>
+</head>
+
+
+<body class="min-h-screen max-w-[1600px] bg-base-200 mx-auto">
+    <header class="max-w-[1110px] bg-base-200 mx-auto pt-[60px]">
+        <h1 class="text-[#002C5C] font-bold text-xl md:text-3xl text-center md:text-left">Job Application Tracker
+        </h1>
+        <div class=" btn1 mt-5 flex lg:flex-row sm:flex-col  justify-between items-center">
+            <div class=" w-[359px] h-[97px] bg-[#FFFFFF] rounded-md">
+                <p class="font-medium text-[14px] text-[#323B49] pl-5 pt-5 ">Total</p>
+                <h1 id="total1" class="font-bold text-2xl pl-5">0</h1>
+            </div>
+            <div class="w-[359px] h-[97px] bg-[#FFFFFF] rounded-md">
+                <p class="font-medium text-[14px] text-[#323B49] pl-5 pt-5 ">Interview</p>
+                <h1 id="total2" class="font-bold text-2xl pl-5 text-[#10B981]">0</h1>
+            </div>
+            <div class="w-[359px] h-[97px] bg-[#FFFFFF] rounded-md">
+                <p class="font-medium text-[14px] text-[#323B49] pl-5 pt-5 ">Rejected</p>
+                <h1 id="total3" class="font-bold text-2xl pl-5 text-[#EF4444]">0</h1>
+            </div>
+        </div>
+    </header>
+    <section class="border-b-2 outline-none max-w-[1110px] text-[#E6E7E9] mx-auto mt-[30px] mb-[30px]"></section>
+    <main class="max-w-[1110px] mx-auto">
+        <section>
+            <div class=" allJob flex justify-between">
+                <h1 class="  font-semibold text-[20px] text-[#002C5C]">Available Jobs</h1>
+                <p class="count text-[#64748B] font-medium text-[16px]"><span id="total4">0</span> of 8 jobs</p>
+            </div>
+
+            <div class="flex gap-2 mt-6 AllBtn">
+                <button onclick="toggleStyle('all-filter-btn')" id="all-filter-btn" class="btn w-20 h-8">All</button>
+
+                <button onclick="toggleStyle('interview-filter-btn')" id="interview-filter-btn" class="btn w-20 h-8 ">
+                    Interview</button>
+                <button onclick="toggleStyle('Rejected-filter-btn')" id="Rejected-filter-btn"
+                    class="btn w-20 h-8 ">Rejected</button>
+            </div>
+        </section>
+
+        <!-- Filtered card -->
+        <section id="filtered-section" class="hidden"></section>
+        <section id="blank-section" class="hidden mb-10px">
+            <div class="w-[1110px] h-[400px] bg-[#FFFFFF] p-6 rounded-md mt-5">
+
+                <div class="ml-[480px] mt-[111px]">
+                    <img class="w-[100px] h-[100px] " src="image/assignments-7.png" alt="" srcset="">
+
+                </div>
+                <div class="text-center">
+                    <p class="font-semibold text-[24px] text-[#002C5C] opacity-100">No jobs available</p>
+                    <p class="font-normal text-[16px] text-[#64748B] opacity-100">Check back soon for new job
+                        opportunities</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="allCard">
+            <!-- Card-1 -->
+            <div class="mt-4  ">
+                <!-- Main Part-1 -->
+                <div class="card1 w-[1110px] h-[300px] bg-[#FFFFFF] p-6  flex justify-between rounded-md">
+                    <div>
+                        <div>
+                            <h1 class="class1 font-semibold text-[18px] text-[#002C5C]">Mobile First Corp</h1>
+                            <p class=" class2 font-normal text-[16px] text-[#64748B mt-1 ]">React Native Developer</p>
+                        </div>
+                        <div>
+                            <p class="class3 font-normal text-[14px] text-[#64748B] mt-5">Remote • Full-time • $130,000
+                                -
+                                $175,000
+                            </p>
+                        </div>
+                        <p class="class4 btn uppercase mt-5 status-btn">Not Applied</p>
+                        <p class="class5 notes font-normal text-[14px] text-[#323B49] mt-2">Build cross-platform mobile
+                            applications
+                            using
+                            React
+                            Native. Work on products used by millions of
+                            users worldwide.</p>
+                        <div>
+                            <button id="btn-1"
+                                class="interview-btn class6 btn uppercase mt-5 mr-2 w-[100px] h-9 border-3 border-[#10B981] text-[#10B981] bg-white">Interview</button>
+                            <button
+                                class="class7 reject-btn btn uppercase mt-5 w-[100px] h-9 border-3 border-[#EF4444] text-[#EF4444]">Rejected</button>
+                        </div>
+                    </div>
+
+
+
+                    <div>
+                        <button class=" deleteBtn btn-delete"><i class="fa-regular fa-trash-can"></i></button>
+                    </div>
+
+                </div>
+
+
+            </div>
+            <!-- Card-2 -->
+            <div class="mt-4 card ">
+                <!-- Main Part-1 -->
+                <div class=" card1 w-[1110px] h-[300px] bg-[#FFFFFF] p-6  flex justify-between rounded-md">
+                    <div>
+                        <div>
+                            <h1 class="class1 font-semibold text-[18px] text-[#002C5C]">WebFlow Agency</h1>
+                            <p class=" class2 font-normal text-[16px] text-[#64748B mt-1 ]">Web Designer & Developer</p>
+                        </div>
+                        <div>
+                            <p class="class3 font-normal text-[14px] text-[#64748B] mt-5">Los Angeles, CA
+                                •
+                                Part-time
+                                •
+                                $80,000 - $120,000
+                            </p>
+                        </div>
+                        <p class="class4 btn uppercase mt-5 status-btn">Not Applied</p>
+                        <p class="class5 notes font-normal text-[14px] text-[#323B49] mt-2">Create stunning web
+                            experiences for high-profile clients. Must have portfolio and experience with modern web
+                            design trends.</p>
+                        <div>
+                            <button id="btn-1"
+                                class="interview-btn class6 border-3 border-[#10B981] text-[#10B981] btn uppercase mt-5 mr-2 w-[100px] h-9">Interview</button>
+                            <button
+                                class="reject-btn class7 btn uppercase mt-5 w-[100px] h-9 border-3 border-[#EF4444] text-[#EF4444]">Rejected</button>
+                        </div>
+                    </div>
+
+
+
+                    <div>
+                        <button class="deleteBtn btn-delete"><i class="fa-regular fa-trash-can"></i></button>
+                    </div>
+
+                </div>
+
+
+            </div>
+            <!-- Card-3 -->
+            <div class="mt-4 card ">
+                <!-- Main Part-1 -->
+                <div class="card1 w-[1110px] h-[300px] bg-[#FFFFFF] p-6  flex justify-between rounded-md">
+                    <div>
+                        <div>
+                            <h1 class="class1 font-semibold text-[18px] text-[#002C5C]">DataViz Solutions</h1>
+                            <p class=" class2 font-normal text-[16px] text-[#64748B mt-1 ]">Data Visualization
+                                Specialist</p>
+                        </div>
+                        <div>
+                            <p class="class3 font-normal text-[14px] text-[#64748B] mt-5">Boston, MA
+                                •
+                                Full-time
+                                •
+                                $125,000 - $165,000
+                            </p>
+                        </div>
+                        <p class="class4 btn uppercase mt-5 status-btn">Not Applied</p>
+                        <p class="class5 notes font-normal text-[14px] text-[#323B49] mt-2">Transform complex data into
+                            compelling visualizations. Required skills: D3.js, React, and strong analytical thinking.
+                        </p>
+                        <div>
+                            <button id="btn-1"
+                                class="interview-btn class6 border-3 border-[#10B981] text-[#10B981] btn uppercase mt-5 mr-2 w-[100px] h-9">Interview</button>
+                            <button
+                                class="class7 reject-btn btn uppercase mt-5 w-[100px] h-9 border-3 border-[#EF4444] text-[#EF4444]">Rejected</button>
+                        </div>
+                    </div>
+
+
+
+                    <div>
+                        <button class="deleteBtn btn-delete"><i class="fa-regular fa-trash-can"></i></button>
+                    </div>
+
+                </div>
+
+
+            </div>
+            <!-- Card-4 -->
+            <div class="mt-4 card ">
+                <!-- Main Part-1 -->
+                <div class="card1 w-[1110px] h-[300px] bg-[#FFFFFF] p-6  flex justify-between rounded-md">
+                    <div>
+                        <div>
+                            <h1 class="class1 font-semibold text-[18px] text-[#002C5C]">CloudFirst Inc</h1>
+                            <p class=" class2 font-normal text-[16px] text-[#64748B mt-1 ]">Backend Developer</p>
+                        </div>
+                        <div>
+                            <p class="class3 font-normal text-[14px] text-[#64748B] mt-5">Seattle, WA
+                                •
+                                Full-time
+                                •
+                                $140,000 - $190,000
+                            </p>
+                        </div>
+                        <p class="class4 btn uppercase mt-5 status-btn">Not Applied</p>
+                        <p class="class5 notes font-normal text-[14px] text-[#323B49] mt-2">Design and maintain scalable
+                            backend systems using Python and AWS. Work with modern DevOps practices and cloud
+                            infrastructure.</p>
+                        <div>
+                            <button id="btn-1"
+                                class=" interview-btn class6 border-3 border-[#10B981] text-[#10B981] btn uppercase mt-5 mr-2 w-[100px] h-9">Interview</button>
+                            <button
+                                class="class7 reject-btn btn uppercase mt-5 w-[100px] h-9 border-3 border-[#EF4444] text-[#EF4444]">Rejected</button>
+                        </div>
+                    </div>
+
+
+
+                    <div>
+                        <button class="deleteBtn btn-delete"><i class="fa-regular fa-trash-can"></i></button>
+                    </div>
+
+                </div>
+
+
+            </div>
+            <!-- Card-5 -->
+            <div class="mt-4 card ">
+                <!-- Main Part-1 -->
+                <div class="card1 w-[1110px] h-[300px] bg-[#FFFFFF] p-6  flex justify-between rounded-md">
+                    <div>
+                        <div>
+                            <h1 class="class1 font-semibold text-[18px] text-[#002C5C]">Innovation Labs</h1>
+                            <p class=" class2 font-normal text-[16px] text-[#64748B mt-1 ]">UI/UX Engineer</p>
+                        </div>
+                        <div>
+                            <p class="class3 font-normal text-[14px] text-[#64748B] mt-5">Austin, TX
+                                •
+                                Full-time
+                                •
+                                $110,000 - $150,000
+                            </p>
+                        </div>
+                        <button class="class4 btn uppercase mt-5 status-btn">Not Applied</button>
+                        <p class="class5 notes font-normal text-[14px] text-[#323B49] mt-2">Create beautiful and
+                            functional user interfaces for our suite of products. Strong design skills and frontend
+                            development expertise required.</p>
+                        <div>
+                            <button id="btn-1"
+                                class=" interview-btn class6 border-3 border-[#10B981] text-[#10B981] btn uppercase mt-5 mr-2 w-[100px] h-9">Interview</button>
+                            <button
+                                class="class7 reject-btn btn uppercase mt-5 w-[100px] h-9 border-3 border-[#EF4444] text-[#EF4444]">Rejected</button>
+                        </div>
+                    </div>
+
+
+
+                    <div>
+                        <button class="deleteBtn btn-delete"><i class="fa-regular fa-trash-can"></i></button>
+                    </div>
+
+                </div>
+
+
+            </div>
+            <!-- Card-6 -->
+            <div class="mt-4 card ">
+                <!-- Main Part-1 -->
+                <div class="card1 w-[1110px] h-[300px] bg-[#FFFFFF] p-6  flex justify-between rounded-md">
+                    <div>
+                        <div>
+                            <h1 class="class1 font-semibold text-[18px] text-[#002C5C]">MegaCorp Solutions</h1>
+                            <p class=" class2 font-normal text-[16px] text-[#64748B mt-1 ]">JavaScript Developer</p>
+                        </div>
+                        <div>
+                            <p class="class3 font-normal text-[14px] text-[#64748B] mt-5">New York, NY
+                                •
+                                Full-time
+                                •
+                                $130,000 - $170,00
+                            </p>
+                        </div>
+                        <p class="class4 btn uppercase mt-5 status-btn">Not Applied</p>
+                        <p class="class5 notes font-normal text-[14px] text-[#323B49] mt-2">Build enterprise
+                            applications with JavaScript and modern frameworks. We offer competitive compensation,
+                            health insurance, and professional development opportunities.</p>
+                        <div>
+                            <button id="btn-1"
+                                class=" interview-btn class6 border-3 border-[#10B981] text-[#10B981] btn uppercase mt-5 mr-2 w-[100px] h-9">Interview</button>
+                            <button
+                                class="class7 reject-btn btn uppercase mt-5 w-[100px] h-9 border-3 border-[#EF4444] text-[#EF4444]">Rejected</button>
+                        </div>
+                    </div>
+
+
+
+                    <div>
+                        <button class="deleteBtn btn-delete"><i class="fa-regular fa-trash-can"></i></button>
+                    </div>
+
+                </div>
+
+
+            </div>
+            <!-- Card-7 -->
+            <div class="mt-4 card ">
+                <!-- Main Part-1 -->
+                <div class="card1 w-[1110px] h-[300px] bg-[#FFFFFF] p-6  flex justify-between rounded-md">
+                    <div>
+                        <div>
+                            <h1 class="class1 font-semibold text-[18px] text-[#002C5C]">StartupXYZ</h1>
+                            <p class=" class2 font-normal text-[16px] text-[#64748B mt-1 ]">Full Stack Engineer</p>
+                        </div>
+                        <div>
+                            <p class="class3 font-normal text-[14px] text-[#64748B] mt-5">Remote
+                                •
+                                Full-time
+                                •
+                                $120,000 - $160,000
+                            </p>
+                        </div>
+                        <p class="class4 btn uppercase mt-5 status-btn">Not Applied</p>
+                        <p class="class5 notes font-normal text-[14px] text-[#323B49] mt-2">Join our fast-growing
+                            startup and work on our core platform. Experience with Node.js and React required. Great
+                            benefits and equity package included.</p>
+                        <div>
+                            <button id="btn-1"
+                                class=" interview-btn class6 border-3 border-[#10B981] text-[#10B981] btn uppercase mt-5 mr-2 w-[100px] h-9">Interview</button>
+                            <button
+                                class="class7 reject-btn btn uppercase mt-5 w-[100px] h-9 border-3 border-[#EF4444] text-[#EF4444]">Rejected</button>
+                        </div>
+                    </div>
+
+
+
+                    <div>
+                        <button class="deleteBtn btn-delete"><i class="fa-regular fa-trash-can"></i></button>
+                    </div>
+
+                </div>
+
+
+            </div>
+            <!-- Card-8 -->
+            <div class="mt-4 card ">
+                <!-- Main Part-1 -->
+                <div class="card1 w-[1110px] h-[300px] bg-[#FFFFFF] p-6  flex justify-between rounded-md">
+                    <div>
+                        <div>
+                            <h1 class="class1 font-semibold text-[18px] text-[#002C5C]">TechCorp Industries</h1>
+                            <p class=" class2 font-normal text-[16px] text-[#64748B mt-1 ]">Senior Frontend Developer
+                            </p>
+                        </div>
+                        <div>
+                            <p class="class3 font-normal text-[14px] text-[#64748B] mt-5">San Francisco, CA
+                                •
+                                Full-time
+                                •
+                                $130,000 - $175,000
+                            </p>
+                        </div>
+                        <p class="class4 btn uppercase mt-5 status-btn">Not Applied</p>
+                        <p class="class5 notes font-normal text-[14px] text-[#323B49] mt-2">We are looking for an
+                            experienced Frontend Developer to build scalable web applications using React and
+                            TypeScript. You will work with a talented team on cutting-edge projects.</p>
+                        <div>
+                            <button id="btn-1"
+                                class=" interview-btn class6 border-3 border-[#10B981] text-[#10B981] btn uppercase mt-5 mr-2 w-[100px] h-9">Interview</button>
+                            <button
+                                class="class7 reject-btn btn uppercase mt-5 w-[100px] h-9 border-3 border-[#EF4444] text-[#EF4444]">Rejected</button>
+                        </div>
+                    </div>
+
+
+
+                    <div>
+                        <button class="deleteBtn btn-delete"><i class="fa-regular fa-trash-can"></i></button>
+                    </div>
+
+                </div>
+
+
+            </div>
+            <!-- Card-9 -->
+            <div class="mt-4 card ">
+                <!-- Main Part-1 -->
+                <div class="card1 w-[1110px] h-[300px] bg-[#FFFFFF] p-6  flex justify-between rounded-md">
+                    <div>
+                        <div>
+                            <h1 class="class1 font-semibold text-[18px] text-[#002C5C]">First </h1>
+                            <p class=" class2 font-normal text-[16px] text-[#64748B mt-1 ]">React Native Developer</p>
+                        </div>
+                        <div>
+                            <p class="class3 font-normal text-[14px] text-[#64748B] mt-5">Remote • Full-time • $130,000
+                                -
+                                $175,000
+                            </p>
+                        </div>
+                        <p class="class4 btn uppercase mt-5 status-btn">Not Applied</p>
+                        <p class="class5 notes font-normal text-[14px] text-[#323B49] mt-2">Build cross-platform mobile
+                            applications
+                            using
+                            React
+                            Native. Work on products used by millions of
+                            users worldwide.</p>
+                        <div>
+                            <button id="btn-1"
+                                class=" interview-btn class6 border-3 border-[#10B981] text-[#10B981] btn uppercase mt-5 mr-2 w-[100px] h-9">Interview</button>
+                            <button
+                                class="class7 reject-btn btn border-3 border-[#EF4444] text-[#EF4444] uppercase mt-5 w-[100px] h-9">Rejected</button>
+                        </div>
+                    </div>
+
+
+
+                    <div>
+                        <button class="deleteBtn btn-delete"><i class="fa-regular fa-trash-can"></i></button>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </section>
+    </main>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
