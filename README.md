@@ -36,13 +36,12 @@ querySelector / querySelectorAll :
 Answer: Event Bubbling is the process by which an event triggered on a child element “bubbles up” through its ancestors in the DOM hierarchy, triggering the same type of event on parent elements unless stopped.
         In other words: the event starts from the deepest element and moves upward toward the root (document).
         All parent elements can respond to the event if they have listeners.
-
-        How It Works:
-        Event occurs on <button> (child).
-        Event triggers click handler on the child.
-        Event bubbles up to parent <div> and triggers its handler.
-        Continues bubbling up to <body> and <html> if handlers exist.
-        Continues bubbling up to <body> and <html> if handlers exist.
+    How It Works:
+    Event occurs on <button> (child).
+    Event triggers click handler on the child.
+    Event bubbles up to parent <div> and triggers its handler.
+    Continues bubbling up to <body> and <html> if handlers exist.
+    Continues bubbling up to <body> and <html> if handlers exist.
 
 4. What is Event Delegation in JavaScript? Why is it useful?
 Answer:Event Delegation is the practice of attaching a single event listener to a parent element instead of multiple listeners on individual child elements, and then using the event’s bubbling behavior to detect which child triggered the event.
