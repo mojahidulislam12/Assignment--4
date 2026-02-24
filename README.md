@@ -21,15 +21,15 @@ querySelector / querySelectorAll :
 
  Answer: Creating and inserting elements in the DOM is a fundamental JavaScript task. Let’s go step by step,
 
-     -Create a new element
-     -Insert the element into the DOM
-         a) Append as the last child
-         b) Insert before a specific element
-         c) Using modern methods
-            element.append(newDiv) → can append multiple nodes or text
-            element.prepend(newDiv) → insert at the beginning
-            element.after(newDiv) → insert after an element
-            element.before(newDiv) → insert before an element
+      -Create a new element
+ -Insert the element into the DOM
+     a) Append as the last child
+     b) Insert before a specific element
+     c) Using modern methods
+        element.append(newDiv) → can append multiple nodes or text
+        element.prepend(newDiv) → insert at the beginning
+        element.after(newDiv) → insert after an element
+        element.before(newDiv) → insert before an element
 
 3. What is Event Bubbling? And how does it work?
 
