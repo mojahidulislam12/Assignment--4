@@ -21,8 +21,8 @@ querySelector / querySelectorAll :
 
  Answer: Creating and inserting elements in the DOM is a fundamental JavaScript task. Let’s go step by step,
 
-      -Create a new element
- -Insert the element into the DOM
+    -Create a new element
+    -Insert the element into the DOM
      a) Append as the last child
      b) Insert before a specific element
      c) Using modern methods
