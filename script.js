@@ -6,6 +6,7 @@ let total1 = document.getElementById("total1");
 let total2 = document.getElementById("total2");
 let total3 = document.getElementById("total3");
 let total4 = document.getElementById("total4");
+let total5 = document.getElementById("total5");
 const allCard = document.getElementById("allCard");
 //console.log(allCard.children.length);
 
@@ -24,6 +25,7 @@ function calculateCount() {
   total2.innerText = interviewList.length;
   total3.innerText = rejectedList.length;
   total4.innerText = rejectedList.length + interviewList.length;
+  total5.innerText = allCard.children.length;
 }
 
 calculateCount();
